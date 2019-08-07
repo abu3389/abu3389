@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>我的主页</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="shortcut icon" href="favicon.ico" />
+		<!--[if lte IE 8]<script src="assets/js/ie/html5shiv.js"></script>[endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]<link rel="stylesheet" href="assets/css/ie8.css" />[endif]-->
+		<!--[if lte IE 9]<link rel="stylesheet" href="assets/css/ie9.css" />[endif]-->
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+		<script>
+          (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+              (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+              m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+          })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+          ga('create', 'UA-71624765-5', 'auto');
+          ga('send', 'pageview');
+		</script>
+	</head>
+	<body class="loading">
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+			<div id="main">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>前端-阿布</h1>
+						<p>Doubt is the key to knowledge.</p>
+						<nav>
+							<ul>
+								<li>
+									<a href="https://abu3389.github.io/blog/#/" class="icon fa-github">
+										我的博客>
+										<span class="label"></span>
+									</a>
+								</li>
+								<li>
+									<a href="http://github.com/abu3389" class="icon fa-envelope-o">
+										GitHub>
+										<span class="label"></span>
+									</a>
+								</li>
+								<li>
+									<a href="https://www.jianshu.com/u/19187ae46997" class="icon fa-envelope-o">
+										简书 >
+										<span class="label"></span>
+									</a>
+								</li>
+								<li>
+									<a href="mailto:294333196@qq.com" class="icon fa-envelope-o">
+										我的邮箱 >
+										<span class="label"></span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Footer -->
+				<footer>
+					<p id="footer">&copy;&nbsp;2015 -
+						<script>
+                          document.write(new Date().getFullYear());
+						</script>
+						<a href="https://github.com/abu3389" title="github">abu3389</a>
+						<span id="busuanzi_container_site_pv" style="display: inline;">访问 </span>
+						<a href="http://service.ibruce.info/"><span id="busuanzi_value_site_pv"></span></a> 次&nbsp;
+						<a href="http://service.ibruce.info/"><span id="busuanzi_value_site_uv"></span></a> 人
+					</p>
+				</footer>
+
+			</div>
+		</div>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script>
+			window.onload = function() { document.body.className = ''; }
+			window.ontouchmove = function() { return false; }
+			window.onorientationchange = function() { document.body.scrollTop = 0; }
+		</script>
+	</body>
+</html>

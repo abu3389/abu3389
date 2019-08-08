@@ -132,8 +132,8 @@ if (window.DeviceOrientationEvent) {
                       Math.abs(beta)>=170 ? //是否上下大于170的翻转
                       eyeLeft.style.top: //保持原先的不动
                       beta/Math.abs(beta) >0 ?
-                      eyeLeftCenterPosition.y + beta/Math.abs(beta)*r + 'px'://限制最大距离移动
-                      eyeLeftCenterPosition.y + beta/Math.abs(beta)*r*0.7 + 'px'
+                      eyeLeftCenterPosition.y + beta/Math.abs(beta)*r*0.7 + 'px'://限制最大距离移动
+                      eyeLeftCenterPosition.y + beta/Math.abs(beta)*r + 'px'
     document.getElementById("eyeTop").innerText=eyeLeft.style.top
 
     //手机上下翻转，左右眼珠旋转角度

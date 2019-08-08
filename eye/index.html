@@ -68,9 +68,9 @@
     <div>手机左右翻转了<span id="gamma">0</span>°</div>
     <div>手机上下翻转了<span id="beta">0</span>°</div>
     <p></p>
-    <div>左眼距离左侧距离<span id="leftEyeLeft">0</span>px</div>
-    <div>右眼距离左侧距离<span id="rightEyeLeft">0</span>px</div>
-    <div>左右眼距离上部距离<span id="eyeTop">0</span>px</div>
+    <div>左眼距离左侧距离<span id="leftEyeLeft">0</span></div>
+    <div>右眼距离左侧距离<span id="rightEyeLeft">0</span></div>
+    <div>左右眼距离上部距离<span id="eyeTop">0</span></div>
     <div>左右眼珠旋转角度<span id="eyeRotate">0</span></div>
   </div>
 <script>
@@ -121,21 +121,21 @@ if (window.DeviceOrientationEvent) {
     eyeLeft.style.left =  eyeLeftCenterPosition.x + gamma / 90 * r + 'px';
     document.getElementById("leftEyeLeft").innerText=eyeLeft.style.left
     eyeRight.style.left =  eyeRightCenterPosition.x + gamma / 90 * r + 'px';
-    document.getElementById("rightEyeLeft").innerText=eyeRight.style.left.toFixed(2)
+    document.getElementById("rightEyeLeft").innerText=eyeRight.style.left
 
 
     //手机上下翻转，左右眼距离上部位置
     eyeLeft.style.top = eyeRight.style.top 
                       //中心点的起始距离+旋转角度与180°的比例*眼球活动半径=此时翻转手机后眼睛的y距离
                       = eyeLeftCenterPosition.y + beta / 180 * r + 'px';
-    document.getElementById("eyeTop").innerText=eyeLeft.style.top.toFixed(2)
+    document.getElementById("eyeTop").innerText=eyeLeft.style.top
 
     //手机上下翻转，左右眼珠旋转角度
     eyeLeft.style.transform  = eyeRight.style.transform
                              = eyeRight.style.WebkitTransform 
                              = eyeLeft.style.WebkitTransform 
                              = 'rotate(' + beta + 'deg)';
-    document.getElementById("eyeRotate").innerText=eyeLeft.style.transform.toFixed(2)
+    document.getElementById("eyeRotate").innerText=eyeLeft.style.transform
 
   }, false);
 } else {

@@ -98,7 +98,7 @@ var eyeRightCenterPosition = {
   y: (eyeRightPosition.end[1] - eyeRightPosition.start[1]) / 2 + eyeRightPosition.start[1]
 };
 //设置眼球活动半径
-var r = 5;
+var r = 10;
 //获取左右眼元素
 var eyeLeft = document.querySelector('#eyeLeft');
 var eyeRight = document.querySelector('#eyeRight');
@@ -145,6 +145,23 @@ if (window.DeviceOrientationEvent) {
   }, false);
 } else {
   document.querySelector('body').innerHTML = '浏览器不支持DeviceOrientationEvent';
+}
+//鼠标移动事件
+let x
+let y
+document.onmousemove = function (e) {
+        e = e || event;
+        //获取鼠标坐标
+        x= e.clientX;
+        y = e.clientY;
+        console.log("x",x,"y",y)
+        eyeLeft.style.left=x - eyeLeftCenterPosition.x >0 ? 
+        eyeLeftCenterPosition.x + (x - eyeLeftCenterPosition.x) + 'px' : //右边
+        eyeLeftCenterPosition.x - x + 'px'//左边
+
+        eyeRight.style.left=x - eyeRightCenterPosition.x >0 ? 
+        eyeRightCenterPosition.x + (x - eyeRightCenterPosition.x) + 'px' : 
+        eyeRightCenterPosition.x - x + 'px'
 }
 </script>
 </body>

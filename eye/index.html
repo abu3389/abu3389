@@ -118,9 +118,9 @@ if (window.DeviceOrientationEvent) {
 
     //根据翻转属性的反馈值设置眼睛对应的位置
     //手机左右翻转，左右眼距离左侧位置=中心点的起始距离+旋转角度与90°的比例*眼球活动半径
-    eyeLeft.style.left =  eyeLeftCenterPosition.x + gamma*5 / 90 * r + 'px';
+    eyeLeft.style.left =  eyeLeftCenterPosition.x + gamma*10 / 90 * r + 'px';
     document.getElementById("leftEyeLeft").innerText=eyeLeft.style.left
-    eyeRight.style.left =  eyeRightCenterPosition.x + gamma*5 / 90 * r + 'px';
+    eyeRight.style.left =  eyeRightCenterPosition.x + gamma*10 / 90 * r + 'px';
     document.getElementById("rightEyeLeft").innerText=eyeRight.style.left
 
 

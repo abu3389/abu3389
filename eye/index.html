@@ -71,6 +71,7 @@
     <div>右眼距离左侧距离<span id="rightEyeLeft">0</span></div>
     <div>左右眼距离上部距离<span id="eyeTop">0</span></div>
     <div>左右眼珠旋转角度<span id="eyeRotate">0</span></div>
+    <div>超过了170<span id="over">false</span></div>
   </div>
 <script>
 'use strict';
@@ -129,7 +130,7 @@ if (window.DeviceOrientationEvent) {
                       = Math.abs(beta)<=90 ? //是否上下小于90的翻转
                       eyeLeftCenterPosition.y +  beta / 90 * r + 'px' : //正常距离移动
                       Math.abs(beta)>=170 ? //是否上下大于170的翻转
-                      eyeLeft.style.top: //保持原先的不动
+                      document.getElementById("over").innerText='true': //保持原先的不动
                       eyeLeftCenterPosition.y + beta/Math.abs(beta)*r + 'px'//限制最大距离移动
     document.getElementById("eyeTop").innerText=eyeLeft.style.top
 

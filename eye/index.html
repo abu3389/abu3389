@@ -126,7 +126,7 @@ if (window.DeviceOrientationEvent) {
     //手机上下翻转，左右眼距离上部位置
     eyeLeft.style.top = eyeRight.style.top 
                       //中心点的起始距离+旋转角度与90°的比例*眼球活动半径=此时翻转手机后眼睛的y距离
-                      = eyeLeftCenterPosition.y + abs(beta)<=90 ? beta / 90 * r : r + 'px';
+                      = eyeLeftCenterPosition.y + Math.abs(beta)<=90 ? beta / 90 * r : r + 'px';
     document.getElementById("eyeTop").innerText=eyeLeft.style.top
 
     //手机上下翻转，左右眼珠旋转角度

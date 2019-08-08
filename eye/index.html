@@ -129,7 +129,7 @@ if (window.DeviceOrientationEvent) {
                       = Math.abs(beta)<=90 ? //是否上下小于90的翻转
                       eyeLeftCenterPosition.y +  beta / 90 * r + 'px' : //正常距离移动
                       Math.abs(beta)>=170 ? //是否上下大于170的翻转
-                      eyeLeftCenterPosition.y + 'px': //保持不动
+                      eyeLeft.style.top + 'px': //保持原先的不动
                       eyeLeftCenterPosition.y + beta/Math.abs(beta)*r + 'px'//限制最大距离移动
     document.getElementById("eyeTop").innerText=eyeLeft.style.top
 

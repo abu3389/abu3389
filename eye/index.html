@@ -71,7 +71,7 @@
     <div>左眼距离左侧距离<span id="leftEyeLeft">0</span>px</div>
     <div>右眼距离左侧距离<span id="rightEyeLeft">0</span>px</div>
     <div>左右眼距离上部距离<span id="eyeTop">0</span>px</div>
-    <div>左右眼珠旋转角度<span id="eyeRotate">0</span>°</div>
+    <div>左右眼珠旋转角度<span id="eyeRotate">0</span></div>
   </div>
 <script>
 'use strict';
@@ -111,9 +111,9 @@ if (window.DeviceOrientationEvent) {
     // gamma 行动装置水平放置时，绕 Y 轴旋转的角度，数值为 -90 度到 90 度。（即手机左右翻转）
     let {alpha, beta, gamma} = event;
 
-    document.getElementById("alpha").innerText=alpha
-    document.getElementById("beta").innerText=beta
-    document.getElementById("gamma").innerText=gamma
+    document.getElementById("alpha").innerText=alpha.toFixed(2)
+    document.getElementById("beta").innerText=beta.toFixed(2)
+    document.getElementById("gamma").innerText=gamma.toFixed(2)
 
 
     //根据翻转属性的反馈值设置眼睛对应的位置
@@ -121,22 +121,22 @@ if (window.DeviceOrientationEvent) {
     eyeLeft.style.left =  eyeLeftCenterPosition.x + gamma / 90 * r + 'px';
     document.getElementById("leftEyeLeft").innerText=eyeLeft.style.left
     eyeRight.style.left =  eyeRightCenterPosition.x + gamma / 90 * r + 'px';
-    document.getElementById("rightEyeLeft").innerText=eyeRight.style.left
+    document.getElementById("rightEyeLeft").innerText=eyeRight.style.left.toFixed(2)
 
 
     //手机上下翻转，左右眼距离上部位置
     eyeLeft.style.top = eyeRight.style.top 
                       //中心点的起始距离+旋转角度与180°的比例*眼球活动半径=此时翻转手机后眼睛的y距离
                       = eyeLeftCenterPosition.y + beta / 180 * r + 'px';
-    document.getElementById("eyeTop").innerText=eyeLeft.style.top
+    document.getElementById("eyeTop").innerText=eyeLeft.style.top.toFixed(2)
 
     //手机上下翻转，左右眼珠旋转角度
     eyeLeft.style.transform  = eyeRight.style.transform
                              = eyeRight.style.WebkitTransform 
                              = eyeLeft.style.WebkitTransform 
                              = 'rotate(' + beta + 'deg)';
-    document.getElementById("eyeRotate").innerText=eyeLeft.style.transform
-                             
+    document.getElementById("eyeRotate").innerText=eyeLeft.style.transform.toFixed(2)
+
   }, false);
 } else {
   document.querySelector('body').innerHTML = '浏览器不支持DeviceOrientationEvent';

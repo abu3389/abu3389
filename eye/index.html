@@ -127,8 +127,8 @@ if (window.DeviceOrientationEvent) {
     //手机上下翻转，左右眼距离上部位置
     eyeLeft.style.top = eyeRight.style.top 
                       //中心点的起始距离+旋转角度与90°的比例*眼球活动半径=此时翻转手机后眼睛的y距离
-                      = Math.abs(beta)<=90 ? //是否上下小于90的翻转
-                      eyeLeftCenterPosition.y +  beta*5 / 90 * r + 'px' : //正常距离移动
+                      = Math.abs(beta)<=45 ? //是否上下小于90的翻转
+                      eyeLeftCenterPosition.y +  beta*5 / 45 * r + 'px' : //正常距离移动
                       Math.abs(beta)>=170 ? //是否上下大于170的翻转
                       eyeLeft.style.top: //保持原先的不动
                       eyeLeftCenterPosition.y + beta/Math.abs(beta)*r + 'px'//限制最大距离移动

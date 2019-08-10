@@ -7,31 +7,44 @@
 	<link rel="stylesheet" type="text/css" href="minions.css">
 </head>
 <body>
-	<div class="wrapper"><!-- 容器 -->
-		<div class="minions"><!-- 小黄人 -->
+    <!-- 容器 -->
+	<div class="wrapper">
+	    <!-- 小黄人 -->
+		<div class="minions">
 		    <div style="width: 240px;margin: 0 auto;">
-				<div class="body"><!-- 身体 -->
-					<div class="trousers"><!-- 裤子 -->
-						<div class="condole-belt"><!-- 吊带 -->
+		        <!-- 身体 -->
+				<div class="body">
+				    <!-- 裤子 -->
+					<div class="trousers">
+					    <!-- 吊带 -->
+						<div class="condole-belt">
 							<div class="left"></div>
 							<div class="right"></div>
 						</div>
-						<div class="trousers-top"></div><!-- 裤子突出的矩形部分 -->
-						<div class="pocket"></div><!-- 裤袋 -->
+						<!-- 裤子突出的矩形部分 -->
+						<div class="trousers-top"></div>
+						<!-- 裤袋 -->
+						<div class="pocket"></div>
 						<!-- 三条线 -->
 						<span class="line-left"></span>
 						<span class="line-right"></span>
 						<span class="line-bottom"></span>
 					</div>
 				</div>
-				<div class="hair"><!-- 头发 -->
+				<!-- 头发 -->
+				<div class="hair">
 					<span class="left-hair-one"></span>
 					<span class="left-hair-two"></span>
 				</div>
+				<!-- 头部 -->
 				<div id="box">
+				    <!-- 脸 -->
 				    <div id="face"></div>
+				    <!-- 左眼 -->
 				    <div id="eyeLeft"></div>
+				    <!-- 右眼 -->
 				    <div id="eyeRight"></div>
+				    <!-- 眼镜 -->
 				    <div id="glass"></div>
 				</div>
 				<!-- 眼睛 -->
@@ -49,31 +62,42 @@
 						</div>
 					</div>
 				</div> -->
-				<div class="mouse"><!-- 嘴巴 -->
+				<!-- 嘴巴 -->
+				<div class="mouse">
 					<div class="mouse-shape"></div>
 				</div>
-				<div class="hands"><!-- 双手 -->
+				<!-- 双手 -->
+				<div class="hands">
 					<div class="left-hand"></div>
 					<div class="right-hand"></div>
 				</div>
-				<div class="feet"><!-- 双脚 -->
+				<!-- 双脚 -->
+				<div class="feet">
 					<div class="left-foot"></div>
 					<div class="right-foot"></div>
 				</div>
-				<div class="ground-shadow"></div><!-- 脚底阴影 -->
+				<!-- 脚底阴影 -->
+				<div class="ground-shadow"></div>
 		    </div>
 		</div>
 	</div>
+	<!-- 日志 -->
 	<div id="info">
+	    <!-- phone -->
+	    <h2>phone：</h2>
 	    <div>手机水平翻转了<span id="alpha">0</span>°</div>
 	    <div>手机左右翻转了<span id="gamma">0</span>°</div>
 	    <div>手机上下翻转了<span id="beta">0</span>°</div>
 	    <p></p>
-	    <div>左眼距离左侧距离<span id="leftEyeLeft">0</span></div>
-	    <div>右眼距离左侧距离<span id="rightEyeLeft">0</span></div>
-	    <div>左右眼距离上部距离<span id="eyeTop">0</span></div>
-	    <div>左右眼珠旋转角度<span id="eyeRotate">0</span></div>
-	    <!-- <div>超过了170<span id="over">false</span></div> -->
+	    <div>左右眼X轴移动了<span id="eyeMoveX">0</span>px</div>
+	    <div>左右眼Y轴移动了<span id="eyeMoveY">0</span>px</div>
+	    <div>左右眼珠旋转角度<span id="eyeRotate">0</span>°</div>
+	    <!-- PC -->
+	    <h2>pc：</h2>
+	    <div>鼠标x<span id="mouseX">0</span>px</div>
+	    <div>鼠标y<span id="mouseY">0</span>px</div>
+	    <div>左右眼X轴移动了<span id="pc-eyeMoveX">0</span>px</div>
+	    <div>左右眼Y轴移动了<span id="pc-eyeMoveY">0</span>px</div>
 	</div>
 </body>
 </html>
@@ -81,35 +105,48 @@
 <script>
 'use strict';
 
-<<<<<<< HEAD
-=======
-//设置左眼图像位置（左到右，上到下的起始坐标数据）
->>>>>>> 78a28869e5ec44cd8298c1cf2886cc8587cc386e
-var eyeLeftPosition = {
-  start: [70, 78],
-  end: [100, 110]
-};
-//设右眼图像位置（左到右，上到下的起始坐标数据）
-var eyeRightPosition = {
-  start: [150, 78],
-  end: [180, 110]
-};
-//获取左眼中心x,y坐标
-var eyeLeftCenterPosition = {
-  // （未点-起点）/2 计算出物体半径+起始距离=中心点的x或y距离
-  x: (eyeLeftPosition.end[0] - eyeLeftPosition.start[0]) / 2 + eyeLeftPosition.start[0],
-  y: (eyeLeftPosition.end[1] - eyeLeftPosition.start[1]) / 2 + eyeLeftPosition.start[1]
-};
-//获取右眼中心x,y坐标
-var eyeRightCenterPosition = {
-  x: (eyeRightPosition.end[0] - eyeRightPosition.start[0]) / 2 + eyeRightPosition.start[0],
-  y: (eyeRightPosition.end[1] - eyeRightPosition.start[1]) / 2 + eyeRightPosition.start[1]
-};
+// phone
+
+// //设置左眼图像位置（左到右，上到下的起始坐标数据）
+// var eyeLeftPosition = {
+//   start: [70, 78],
+//   end: [100, 110]
+// };
+// //设右眼图像位置（左到右，上到下的起始坐标数据）
+// var eyeRightPosition = {
+//   start: [150, 78],
+//   end: [180, 110]
+// };
+// //获取左眼中心x,y坐标
+// var eyeLeftCenterPosition = {
+//   // （未点-起点）/2 计算出物体半径+起始距离=中心点的x或y距离
+//   x: (eyeLeftPosition.end[0] - eyeLeftPosition.start[0]) / 2 + eyeLeftPosition.start[0],
+//   y: (eyeLeftPosition.end[1] - eyeLeftPosition.start[1]) / 2 + eyeLeftPosition.start[1]
+// };
+// //获取右眼中心x,y坐标
+// var eyeRightCenterPosition = {
+//   x: (eyeRightPosition.end[0] - eyeRightPosition.start[0]) / 2 + eyeRightPosition.start[0],
+//   y: (eyeRightPosition.end[1] - eyeRightPosition.start[1]) / 2 + eyeRightPosition.start[1]
+// };
 //设置眼球活动半径
-var r = 5;
+var r = 15;
 //获取左右眼元素
 var eyeLeft = document.querySelector('#eyeLeft');
 var eyeRight = document.querySelector('#eyeRight');
+// // //获取左眼的宽高和x,y距离属性
+// const eyeLeftToScreenZero = eyeLeft.getBoundingClientRect()
+// const leftPosX = eyeLeftToScreenZero.x + (eyeLeftToScreenZero.width / 2);
+// const leftPosY = eyeLeftToScreenZero.y + (eyeLeftToScreenZero.height / 2);
+
+// //获取有眼的宽高和x,y距离属性
+// const eyeRightToScreenZero = eyeRight.getBoundingClientRect()
+// const rightPosX = eyeRightToScreenZero.x + (eyeRightToScreenZero.width / 2);
+// const rightPosY = eyeRightToScreenZero.y + (eyeRightToScreenZero.height / 2);
+const leftPosY = 90
+const leftPosX = 90
+
+const rightPosY = 90
+const rightPosX = 175
 //判断浏览器是否支持陀螺仪
 if (window.DeviceOrientationEvent) {
   //添加窗体事件委托监听
@@ -126,22 +163,21 @@ if (window.DeviceOrientationEvent) {
 
     //根据翻转属性的反馈值设置眼睛对应的位置
     //手机左右翻转，左右眼距离左侧位置=中心点的起始距离+旋转角度与90°的比例*眼球活动半径
-    eyeLeft.style.left =  eyeLeftCenterPosition.x + gamma*5 / 90 * r + 'px';
-    document.getElementById("leftEyeLeft").innerText=eyeLeft.style.left
-    eyeRight.style.left =  eyeRightCenterPosition.x + gamma*5 / 90 * r + 'px';
-    document.getElementById("rightEyeLeft").innerText=eyeRight.style.left
-
+    eyeLeft.style.left =  leftPosX + (gamma / 90 * r) + 'px';
+    eyeRight.style.left = rightPosX + (gamma / 90 * r) + 'px';
+    document.getElementById("eyeMoveX").innerText=(gamma / 90 * r)
 
     //手机上下翻转，左右眼距离上部位置
-    eyeLeft.style.top = eyeRight.style.top 
-                      //中心点的起始距离+旋转角度与90°的比例*眼球活动半径=此时翻转手机后眼睛的y距离
-                      = Math.abs(beta)<=90 ? //是否上下小于90的翻转
-                      eyeLeftCenterPosition.y +  beta*5 / 90 * r + 'px' : //正常距离移动
-                      Math.abs(beta)>=170 ? //是否上下大于170的翻转
-                      eyeLeft.style.top: //保持原先的不动
-                      eyeLeftCenterPosition.y + beta/Math.abs(beta)*r + 'px'//限制最大距离移动
-                      
-    document.getElementById("eyeTop").innerText=eyeLeft.style.top
+    // eyeLeft.style.top = eyeRight.style.top 
+    //                   //中心点的起始距离+旋转角度与90°的比例*眼球活动半径=此时翻转手机后眼睛的y距离
+    //                   = Math.abs(beta)<=90 ? //是否上下小于90的翻转
+    //                   leftPosY +  (beta / 90 * r) + 'px' : //正常距离移动
+    //                   Math.abs(beta)>=170 ? //是否上下大于170的翻转
+    //                   eyeLeft.style.top: //保持原先的不动
+    //                   leftPosY + beta/Math.abs(beta)*r + 'px'//限制最大距离移动
+
+    eyeLeft.style.top = eyeRight.style.top = leftPosY +  (beta / 90 * r) + 'px';//正常距离移动
+    document.getElementById("eyeMoveY").innerText=(beta / 90 * r)
 
     //手机上下翻转，左右眼珠旋转角度
     eyeLeft.style.transform  = eyeRight.style.transform
@@ -154,21 +190,55 @@ if (window.DeviceOrientationEvent) {
 } else {
   document.querySelector('body').innerHTML = '浏览器不支持DeviceOrientationEvent';
 }
-//鼠标移动事件
-// let x
-// let y
-// document.onmousemove = function (e) {
-//         e = e || event;
-//         //获取鼠标坐标
-//         x= e.clientX;
-//         y = e.clientY;
-//         console.log("鼠标x",x,"鼠标y",y)
-//         eyeLeft.style.left=x - eyeLeftCenterPosition.x >0 ? 
-//         eyeLeftCenterPosition.x + (x - eyeLeftCenterPosition.x) + 'px' : //右边
-//         eyeLeftCenterPosition.x - x + 'px'//左边
 
-//         eyeRight.style.left=x - eyeRightCenterPosition.x >0 ? 
-//         eyeRightCenterPosition.x + (x - eyeRightCenterPosition.x) + 'px' : 
-//         eyeRightCenterPosition.x - x + 'px'
-// }
+// pc
+const body = document.querySelector('.body')
+const bodyToScreenZero = body.getBoundingClientRect()//获取小黄人的宽高和x,y距离属性
+const xhrPosX = bodyToScreenZero.x + (bodyToScreenZero.width / 2); // 小黄人在屏幕中的x中心点
+const xhrPosY = bodyToScreenZero.y + (bodyToScreenZero.height / 2);// 小黄人在屏幕中的y中心点
+
+const screenWidth = document.body.clientWidth//获取屏幕宽
+const screenHeight = window.innerHeight;//获取屏幕高
+
+window.addEventListener('mousemove', e => {
+  const { x, y } = e;
+  document.getElementById("mouseX").innerText=x
+  document.getElementById("mouseY").innerText=y
+
+  const isRight = x >= xhrPosX//判断鼠标x是否大于小黄人中心点x，大于则说明鼠标在右边
+  const isTop = y >= xhrPosY//判断鼠标y是否大于小黄人中心点y，大于则说明鼠标在上边
+  const xc = Math.abs(x - xhrPosX);//计算鼠标与小黄人中心x差距
+  const yc = Math.abs(y - xhrPosY);//计算鼠标与小黄人中心y差距
+  if (isRight) {//鼠标在小黄人右边
+    const lzzx = `${leftPosX + xc / ( screenWidth - xhrPosX) * r}px`;//眼睛移动距离=原来的距离 +（鼠标与小黄人中心点差/鼠标侧屏幕与小黄人中心点差）*移动倍速
+    const rzzx = `${rightPosX + xc / ( screenWidth - xhrPosX) * r}px`;
+    eyeLeft.style.left = lzzx;
+    eyeRight.style.left = rzzx;
+
+    document.getElementById("pc-eyeMoveX").innerText=xc / ( screenWidth - xhrPosX) * r
+  } else {//鼠标在小黄人左边
+    const lzzx = `${leftPosX - (xc / xhrPosX * r)}px`;
+    const rzzx = `${rightPosX-(xc / xhrPosX * r)}px`;
+    eyeLeft.style.left = lzzx;
+    eyeRight.style.left = rzzx;
+
+    document.getElementById("pc-eyeMoveX").innerText=(xc / xhrPosX * r)
+  }
+  if (isTop) {//鼠标在小黄人上边
+    const zzy = `${leftPosY + yc / (screenHeight - xhrPosY) * r}px`;
+    eyeLeft.style.top = zzy;
+    eyeRight.style.top = zzy;
+
+    document.getElementById("pc-eyeMoveY").innerText=yc / (screenHeight - xhrPosY) * r
+  } else {//鼠标在小黄人下边
+    const zzy = `${leftPosY - (yc / xhrPosY*r)}px`;
+    eyeLeft.style.top = zzy;
+    eyeRight.style.top = zzy;
+
+    document.getElementById("pc-eyeMoveY").innerText=(yc / xhrPosY*r)
+  }
+
+
+
+})
 </script>

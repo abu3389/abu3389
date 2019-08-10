@@ -105,7 +105,7 @@
 <script>
 'use strict';
 
-// phone
+
 
 // //设置左眼图像位置（左到右，上到下的起始坐标数据）
 // var eyeLeftPosition = {
@@ -148,52 +148,8 @@ const leftPosX = 90
 const rightPosY = 90
 const rightPosX = 175
 
-//判断浏览器是否支持陀螺仪
-if (window.DeviceOrientationEvent) {
-  //添加窗体事件委托监听
-  window.addEventListener('deviceorientation', function (event) {
-    // alpha 行动装置水平放置时，绕 Z 轴旋转的角度，数值为 0 度到 360 度（即手机水平翻转）
-    // beta 行动装置水平放置时，绕 X 轴旋转的角度，数值为 -180 度到 180 度。（即手机上下翻转）
-    // gamma 行动装置水平放置时，绕 Y 轴旋转的角度，数值为 -90 度到 90 度。（即手机左右翻转）
-    let {alpha, beta, gamma} = event;
-
-    document.getElementById("alpha").innerText=alpha.toFixed(2)
-    document.getElementById("beta").innerText=beta.toFixed(2)
-    document.getElementById("gamma").innerText=gamma.toFixed(2)
-
-
-    //根据翻转属性的反馈值设置眼睛对应的位置
-    //手机左右翻转，左右眼距离左侧位置=中心点的起始距离+旋转角度与90°的比例*眼球活动半径
-    eyeLeft.style.left =  leftPosX + (gamma / 90 * r) + 'px';
-    eyeRight.style.left = rightPosX + (gamma / 90 * r) + 'px';
-    document.getElementById("eyeMoveX").innerText=(gamma / 90 * r)
-
-    //手机上下翻转，左右眼距离上部位置
-    eyeLeft.style.top = eyeRight.style.top 
-                      //中心点的起始距离+旋转角度与90°的比例*眼球活动半径=此时翻转手机后眼睛的y距离
-                      = Math.abs(beta)<=90 ? //是否上下小于90的翻转
-                      leftPosY +  (beta / 90 * r) + 'px' : //正常距离移动
-                      Math.abs(beta)>=170 ? //是否上下大于170的翻转
-                      eyeLeft.style.top: //保持原先的不动
-                      leftPosY + beta/Math.abs(beta)*r + 'px'//限制最大距离移动
-
-    // eyeLeft.style.top = eyeRight.style.top = leftPosY +  (beta / 90 * r) + 'px';//正常距离移动
-    document.getElementById("eyeMoveY").innerText=(beta / 90 * r)
-
-    //手机上下翻转，左右眼珠旋转角度
-    eyeLeft.style.transform  = eyeRight.style.transform
-                             = eyeRight.style.WebkitTransform 
-                             = eyeLeft.style.WebkitTransform 
-                             = 'rotate(' + beta*3 + 'deg)';
-    document.getElementById("eyeRotate").innerText=eyeLeft.style.transform
-
-  }, false);
-} else {
-  document.querySelector('body').innerHTML = '浏览器不支持DeviceOrientationEvent';
-}
-
 if(isPC()){
-	// pc
+    // pc
 	const body = document.querySelector('.body')
 	const bodyToScreenZero = body.getBoundingClientRect()//获取小黄人的宽高和x,y距离属性
 	const xhrPosX = bodyToScreenZero.x + (bodyToScreenZero.width / 2); // 小黄人在屏幕中的x中心点
@@ -240,6 +196,51 @@ if(isPC()){
 	    document.getElementById("pc-eyeMoveY").innerText=(yc / xhrPosY*r)
 	  }
 	})
+}else{
+	// phone
+	//判断浏览器是否支持陀螺仪
+	if (window.DeviceOrientationEvent) {
+	  //添加窗体事件委托监听
+	  window.addEventListener('deviceorientation', function (event) {
+	    // alpha 行动装置水平放置时，绕 Z 轴旋转的角度，数值为 0 度到 360 度（即手机水平翻转）
+	    // beta 行动装置水平放置时，绕 X 轴旋转的角度，数值为 -180 度到 180 度。（即手机上下翻转）
+	    // gamma 行动装置水平放置时，绕 Y 轴旋转的角度，数值为 -90 度到 90 度。（即手机左右翻转）
+	    let {alpha, beta, gamma} = event;
+
+	    document.getElementById("alpha").innerText=alpha.toFixed(2)
+	    document.getElementById("beta").innerText=beta.toFixed(2)
+	    document.getElementById("gamma").innerText=gamma.toFixed(2)
+
+
+	    //根据翻转属性的反馈值设置眼睛对应的位置
+	    //手机左右翻转，左右眼距离左侧位置=中心点的起始距离+旋转角度与90°的比例*眼球活动半径
+	    eyeLeft.style.left =  leftPosX + (gamma / 90 * r) + 'px';
+	    eyeRight.style.left = rightPosX + (gamma / 90 * r) + 'px';
+	    document.getElementById("eyeMoveX").innerText=(gamma / 90 * r)
+
+	    //手机上下翻转，左右眼距离上部位置
+	    eyeLeft.style.top = eyeRight.style.top 
+	                      //中心点的起始距离+旋转角度与90°的比例*眼球活动半径=此时翻转手机后眼睛的y距离
+	                      = Math.abs(beta)<=90 ? //是否上下小于90的翻转
+	                      leftPosY +  (beta / 90 * r) + 'px' : //正常距离移动
+	                      Math.abs(beta)>=170 ? //是否上下大于170的翻转
+	                      eyeLeft.style.top: //保持原先的不动
+	                      leftPosY + beta/Math.abs(beta)*r + 'px'//限制最大距离移动
+
+	    // eyeLeft.style.top = eyeRight.style.top = leftPosY +  (beta / 90 * r) + 'px';//正常距离移动
+	    document.getElementById("eyeMoveY").innerText=(beta / 90 * r)
+
+	    //手机上下翻转，左右眼珠旋转角度
+	    eyeLeft.style.transform  = eyeRight.style.transform
+	                             = eyeRight.style.WebkitTransform 
+	                             = eyeLeft.style.WebkitTransform 
+	                             = 'rotate(' + beta*3 + 'deg)';
+	    document.getElementById("eyeRotate").innerText=eyeLeft.style.transform
+
+	  }, false);
+	} else {
+	  document.querySelector('body').innerHTML = '浏览器不支持DeviceOrientationEvent';
+	}
 }
 
 function isPC() {

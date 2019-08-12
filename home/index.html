@@ -29,8 +29,83 @@
 		<div id="wrapper">
 			<div id="bg"></div>
 			<div id="overlay"></div>
-			<div id="main">
-
+			<div id="main" style="overflow:auto;">
+				<!-- body容器 -->
+				<div style="height: 480px">
+					<div class="wrapper-yellow">
+					    <!-- 小黄人 -->
+						<div class="minions">
+						    <div style="width: 240px;margin: 0 auto;">
+						        <!-- 身体 -->
+								<div class="body">
+								    <!-- 裤子 -->
+									<div class="trousers">
+									    <!-- 吊带 -->
+										<div class="condole-belt">
+											<div class="left"></div>
+											<div class="right"></div>
+										</div>
+										<!-- 裤子突出的矩形部分 -->
+										<div class="trousers-top"></div>
+										<!-- 裤袋 -->
+										<div class="pocket"></div>
+										<!-- 三条线 -->
+										<span class="line-left"></span>
+										<span class="line-right"></span>
+										<span class="line-bottom"></span>
+									</div>
+								</div>
+								<!-- 头发 -->
+								<div class="hair">
+									<span class="left-hair-one"></span>
+									<span class="left-hair-two"></span>
+								</div>
+								<!-- 头部 -->
+								<div id="box">
+								    <!-- 脸 -->
+								    <div id="face"></div>
+								    <!-- 左眼 -->
+								    <div id="eyeLeft"></div>
+								    <!-- 右眼 -->
+								    <div id="eyeRight"></div>
+								    <!-- 眼镜 -->
+								    <div id="glass"></div>
+								</div>
+								<!-- 眼睛 -->
+								<!-- <div class="eyes"> -->
+								    <!-- 左眼 -->
+					<!-- 				<div class="left-eye">
+										<div class="left-black-eye">
+											<div class="left-white"></div>
+										</div>
+									</div> -->
+									<!-- 右眼 -->
+					<!-- 				<div class="right-eye">
+										<div class="right-black-eye">
+											<div class="right-white"></div>
+										</div>
+									</div>
+								</div> -->
+								<!-- 嘴巴 -->
+								<div class="mouse">
+									<div class="mouse-shape"></div>
+								</div>
+								<!-- 双手 -->
+								<div class="hands">
+									<div class="left-hand"></div>
+									<div class="right-hand"></div>
+								</div>
+								<!-- 双脚 -->
+								<div class="feet">
+									<div class="left-foot"></div>
+									<div class="right-foot"></div>
+								</div>
+								<!-- 脚底阴影 -->
+								<div class="ground-shadow"></div>
+						    </div>
+						</div>
+					</div>
+				</div>
 				<!-- Header -->
 <!-- 				<header id="header">
 					<h1>前端-追寻</h1>
@@ -64,127 +139,49 @@
 						</ul>
 					</nav>
 				</header> -->
-
-				<!-- Footer -->
-				<footer>
-					<div id="header">
-						<nav style="position: absolute;right: 0; left: 0;bottom: 75px;">
-							<ul>
-								<li>
-									<a href="https://abu3389.github.io/blog/#/" class="icon fa-github">
-										我的博客>
-										<span class="label"></span>
-									</a>
-								</li>
-								<li>
-									<a href="http://github.com/abu3389" class="icon fa-envelope-o">
-										GitHub>
-										<span class="label"></span>
-									</a>
-								</li>
-								<li>
-									<a href="https://www.jianshu.com/u/19187ae46997" class="icon fa-envelope-o">
-										简书 >
-										<span class="label"></span>
-									</a>
-								</li>
-								<li>
-									<a href="mailto:294333196@qq.com" class="icon fa-envelope-o">
-										我的邮箱 >
-										<span class="label"></span>
-									</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
-					<p id="footer">&copy;&nbsp;2015 -
-						<script>
-                          document.write(new Date().getFullYear());
-						</script>
-						<a href="https://github.com/abu3389" title="github">追寻-前端</a>
-						<span id="busuanzi_container_site_pv" style="display: inline;">浏览 </span>
-						<span id="busuanzi_value_site_pv"></span> 次&nbsp;
-						<span id="busuanzi_value_site_uv"></span> 人来过
-					</p>
-				</footer>
+				<div id="header" style="height: 10%;">
+					<nav style="position: absolute;right: 0; left: 0;margin: 5px 0;">
+						<ul>
+							<li>
+								<a href="https://abu3389.github.io/blog/#/" class="icon fa-github">
+									我的博客>
+									<span class="label"></span>
+								</a>
+							</li>
+							<li>
+								<a href="http://github.com/abu3389" class="icon fa-envelope-o">
+									GitHub>
+									<span class="label"></span>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.jianshu.com/u/19187ae46997" class="icon fa-envelope-o">
+									简书 >
+									<span class="label"></span>
+								</a>
+							</li>
+							<li>
+								<a href="mailto:294333196@qq.com" class="icon fa-envelope-o">
+									我的邮箱 >
+									<span class="label"></span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div id="footer" style="height: 30px;position: absolute;">&copy;&nbsp;2015 -
+					<script>
+                      document.write(new Date().getFullYear());
+					</script>
+					<a href="https://github.com/abu3389" title="github">追寻-前端</a>
+					<span id="busuanzi_container_site_pv" style="display: inline;">浏览 </span>
+					<span id="busuanzi_value_site_pv"></span> 次&nbsp;
+					<span id="busuanzi_value_site_uv"></span> 人来过
+				</div>
 			</div>
 		</div>
 	</body>
 </html>
-<!-- body容器 -->
-<div class="wrapper-yellow">
-    <!-- 小黄人 -->
-	<div class="minions">
-	    <div style="width: 240px;margin: 0 auto;">
-	        <!-- 身体 -->
-			<div class="body">
-			    <!-- 裤子 -->
-				<div class="trousers">
-				    <!-- 吊带 -->
-					<div class="condole-belt">
-						<div class="left"></div>
-						<div class="right"></div>
-					</div>
-					<!-- 裤子突出的矩形部分 -->
-					<div class="trousers-top"></div>
-					<!-- 裤袋 -->
-					<div class="pocket"></div>
-					<!-- 三条线 -->
-					<span class="line-left"></span>
-					<span class="line-right"></span>
-					<span class="line-bottom"></span>
-				</div>
-			</div>
-			<!-- 头发 -->
-			<div class="hair">
-				<span class="left-hair-one"></span>
-				<span class="left-hair-two"></span>
-			</div>
-			<!-- 头部 -->
-			<div id="box">
-			    <!-- 脸 -->
-			    <div id="face"></div>
-			    <!-- 左眼 -->
-			    <div id="eyeLeft"></div>
-			    <!-- 右眼 -->
-			    <div id="eyeRight"></div>
-			    <!-- 眼镜 -->
-			    <div id="glass"></div>
-			</div>
-			<!-- 眼睛 -->
-			<!-- <div class="eyes"> -->
-			    <!-- 左眼 -->
-<!-- 				<div class="left-eye">
-					<div class="left-black-eye">
-						<div class="left-white"></div>
-					</div>
-				</div> -->
-				<!-- 右眼 -->
-<!-- 				<div class="right-eye">
-					<div class="right-black-eye">
-						<div class="right-white"></div>
-					</div>
-				</div>
-			</div> -->
-			<!-- 嘴巴 -->
-			<div class="mouse">
-				<div class="mouse-shape"></div>
-			</div>
-			<!-- 双手 -->
-			<div class="hands">
-				<div class="left-hand"></div>
-				<div class="right-hand"></div>
-			</div>
-			<!-- 双脚 -->
-			<div class="feet">
-				<div class="left-foot"></div>
-				<div class="right-foot"></div>
-			</div>
-			<!-- 脚底阴影 -->
-			<div class="ground-shadow"></div>
-	    </div>
-	</div>
-</div>
 <!-- 日志 -->
 <div id="info" style="z-index: 999;display: none">
     <!-- phone -->
@@ -212,31 +209,6 @@
 <script>
 'use strict';
 
-
-
-// //设置左眼图像位置（左到右，上到下的起始坐标数据）
-// var eyeLeftPosition = {
-//   start: [70, 78],
-//   end: [100, 110]
-// };
-// //设右眼图像位置（左到右，上到下的起始坐标数据）
-// var eyeRightPosition = {
-//   start: [150, 78],
-//   end: [180, 110]
-// };
-// //获取左眼中心x,y坐标
-// var eyeLeftCenterPosition = {
-//   // （未点-起点）/2 计算出物体半径+起始距离=中心点的x或y距离
-//   x: (eyeLeftPosition.end[0] - eyeLeftPosition.start[0]) / 2 + eyeLeftPosition.start[0],
-//   y: (eyeLeftPosition.end[1] - eyeLeftPosition.start[1]) / 2 + eyeLeftPosition.start[1]
-// };
-// //获取右眼中心x,y坐标
-// var eyeRightCenterPosition = {
-//   x: (eyeRightPosition.end[0] - eyeRightPosition.start[0]) / 2 + eyeRightPosition.start[0],
-//   y: (eyeRightPosition.end[1] - eyeRightPosition.start[1]) / 2 + eyeRightPosition.start[1]
-// };
-//设置眼球活动半径
-var r = 15;
 //获取左右眼元素
 var eyeLeft = document.querySelector('#eyeLeft');
 var eyeRight = document.querySelector('#eyeRight');
@@ -257,6 +229,7 @@ const rightPosX = 175
 
 if(isPC()){
     // pc
+    const r = 15;//设置眼球活动半径
 	const body = document.querySelector('.body')
 	const bodyToScreenZero = body.getBoundingClientRect()//获取小黄人的宽高和x,y距离属性
 	const xhrPosX = bodyToScreenZero.x + (bodyToScreenZero.width / 2); // 小黄人在屏幕中的x中心点
@@ -305,6 +278,7 @@ if(isPC()){
 	})
 }else{
 	// phone
+	const r = 20;//设置眼球活动半径
 	//判断浏览器是否支持陀螺仪
 	if (window.DeviceOrientationEvent) {
 	  //添加窗体事件委托监听
@@ -350,6 +324,7 @@ if(isPC()){
 	}
 }
 
+// 判断是否是电脑
 function isPC() {
     var userAgentInfo = navigator.userAgent;
     var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPod", "iPad"];

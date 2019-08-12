@@ -324,20 +324,20 @@ a:hover {
 #main {
     height: 100%;
     left: 0;
-    position: fixed;
+    position: absolute;
     text-align: center;
     top: 0;
     width: 100%;
 }
 
-#main:before {
+/*#main:before {
     content: '';
     display: inline-block;
     height: 100%;
     margin-right: 0;
     vertical-align: middle;
     width: 1px;
-}
+}*/
 
 /* Header */
 
@@ -503,7 +503,7 @@ a:hover {
     opacity: 0;
     position: relative;
     text-align: center;
-    top: -1em;
+    top: 0.2em;
     vertical-align: middle;
     width: 90%;
 }
@@ -522,7 +522,7 @@ a:hover {
 }
 
 #header nav {
-    margin: 1.5em 0 0 0;
+    /*margin: 1.5em 0 0 0;*/
 }
 
 #header nav li {
@@ -539,8 +539,8 @@ a:hover {
     -ms-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     display: inline-block;
-    height: 2.5em;
-    line-height: 2.5em;
+    height: 2em;
+    line-height: 2em;
     opacity: 0;
     position: relative;
     top: 0;
@@ -633,8 +633,8 @@ a:hover {
     border: solid 1px #fff;
     display: block;
     font-size: 1.75em;
-    height: 2.5em;
-    line-height: 2.5em;
+    height: 2em;
+    line-height: 2em;
     position: relative;
     text-align: center;
     top: 0;
@@ -673,10 +673,9 @@ a:hover {
     background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 75%);
     bottom: 0;
     cursor: default;
-    height: 6em;
+/*    height: 6em;*/
     left: 0;
-    line-height: 8em;
-    position: absolute;
+    /*line-height: 6em;*/
     text-align: center;
     width: 100%;
 }

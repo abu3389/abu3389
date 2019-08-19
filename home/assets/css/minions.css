@@ -22,7 +22,7 @@ body {
 
 .body {
 	position: absolute;
-	width: 240px;
+	width: 239px;
 	height: 400px;
 	border: 5px solid #000;
 	border-radius: 115px;
@@ -87,7 +87,7 @@ body {
     border-radius: 0 0 5px 5px;
     background: rgb(32, 116, 160);
     position: absolute;
-    bottom: 95px;
+    bottom: 94.5px;
     left: 34px;
 }
 
@@ -330,17 +330,17 @@ body {
 }
 
 .mouse .mouse-shape {
-    width: 60px;
-    height: 40px;
-    border: 5px solid #000;
-    border-bottom-left-radius: 25px;
-    background: #fff;
-    position: absolute;
-    top: 175px;
-    left: 98px;
-    z-index: 3;
-    transform: rotate(-35deg);
-    animation: mouse 3s ease-in-out infinite;
+	width: 55px;
+	height: 35px;
+	border: 5px solid #000;
+	border-bottom-left-radius: 30px;
+	background: #fff;
+	position: absolute;
+	top: 175px;
+	left: 98px;
+	z-index: 3;
+	transform: rotate(-35deg);
+	animation: mouse 5s ease-in-out infinite;
 }
 
 @keyframes mouse {
@@ -354,31 +354,31 @@ body {
 	35%,
 	48%,
 	100% {
-		width: 60px;
-		height: 40px;
+		width: 55px;
+		height: 35px;
 		top: 175px;
 		transform: rotate(-35deg);
 	}
 }
 
 .mouse .mouse-shape:after {
-    content: '';
-    width: 80px;
-    height: 34px;
-    border-bottom: 5px solid #000;
-    border-radius: 35px 26px 5px 5px;
-    background: #FFDC00;
-    position: absolute;
+	content: '';
+	width: 70px;
+	height: 32px;
+	border-bottom: 5px solid #000;
+	border-radius: 35px 26px 5px 5px;
+	background: #FFDD00;
+	position: absolute;
     top: -15px;
-    left: -4px;
-    transform: rotate(34deg);
-     animation: mouse-mask 3s ease-in-out infinite; 
+    left: -3px;
+	transform: rotate(34deg);
+	animation: mouse-mask 5s ease-in-out infinite;
 }
 
 @keyframes mouse-mask {
 	40%,
 	43% {
-		width: 61px;
+		width: 60.5px;
 		top: -19.3px;
 		left: 1.5px;
 	}
@@ -386,12 +386,13 @@ body {
 	35%,
 	48%,
 	100% {
-		width: 80px;
-		top: -16px;
-		left: -4px;
+		width: 70px;
+	    top: -15px;
+	    left: -3px;
 		transform: rotate(33deg);
 	}
 }
+
 
 .hands {
 	position: relative;

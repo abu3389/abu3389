@@ -504,8 +504,9 @@ a:hover {
     position: relative;
     text-align: center;
     top: 0.2em;
-    vertical-align: middle;
-    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #header h1 {

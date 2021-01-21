@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<script src="https://lib.baomitu.com/jquery/1.8.3/jquery.js"></script>
+<script type="text/javascript" src="https://lib.baomitu.com/jszip/3.5.0/jszip.min.js"></script>
+<script type="text/javascript" src="https://lib.baomitu.com/FileSaver.js/2014-11-29/FileSaver.js"></script>
+    <style type="text/css">
+	img{
+		max-width:32%;
+		float:left;
+		margin:5px auto;
+		border:solid 1px #eee;
+	} 
+	.button{
+		background-color: #A5DE37;
+		border-color: #A5DE37;
+		color: #FFF;
+		font-weight: 300;
+		font-size: 16px; 
+		text-decoration: none;
+		text-align: center;
+		line-height: 40px;
+		height: 40px;
+		padding: 0 40px;
+		margin: 0;
+		display: inline-block;
+		appearance: none;
+		cursor: pointer;
+		border: none;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		-webkit-transition-property: all;
+		transition-property: all;
+		-webkit-transition-duration: .3s;
+		transition-duration: .3s;
+	}
+	</style>
+</head>
+<body style="text-align:center;">
+    <img src="http://img.zcool.cn/community/01c92f56597f686ac7251c94e76e51.jpg" />
+    <img src="http://img.zcool.cn/community/01888f5922bad7b5b3086ed4cc3711.jpg" />
+ <br/>
+ <br/>
+ <div id="tips"></div>
+ <br/>
+ <div style="clear: both;padding: 20px 0;text-align: center;">
+ <button class="button" onclick="downLoad()">一键下载全部图片</button>
+ </div>
+ <script>
+ function downLoad() {
+    $('#tips').text('处理中。。。。。');
+
+    var imgs = $('img');
+
+    var imgsSrc = [];
+    var imgBase64 = [];
+    var imageSuffix = [];//图片后缀
+    var zip = new JSZip();
+    zip.file("readme.txt", "图片一键打包下载测试\n");
+    var img = zip.folder("images");
+
+    for (var i = 0; i < imgs.length; i++) {
+        var src = imgs[i].getAttribute("src");
+        var suffix = src.substring(src.lastIndexOf("."));
+        imageSuffix.push(suffix); 
+        getBase64(imgs[i].getAttribute("src"))
+            .then(function (base64) {
+                imgBase64.push(base64.substring(22));
+            }, function (err) {
+                console.log(err);//打印异常信息
+            });
+
+    }
+    function tt() {
+        setTimeout(function () {
+            if (imgs.length == imgBase64.length) {
+                for (var i = 0; i < imgs.length; i++) {
+                    img.file(i + imageSuffix[i], imgBase64[i], { base64: true });
+                }
+                zip.generateAsync({ type: "blob" }).then(function (content) {
+                    // see FileSaver.js
+                    saveAs(content, "images.zip");
+                });
+                $('#tips').text('completed ……');
+
+            } else {
+                //console.log('imgs.length:'+imgs.length+',imgBase64.length:'+imgBase64.length);
+                $('#tips').text('finished：' + imgBase64.length + '/' + imgs.length);
+                tt();
+            }
+        }, 100);
+
+    }
+    tt();
+}
+ 
+function getBase64(img) {
+
+    function getBase64Image(img, width, height) {//width、height调用时传入具体像素值，控制大小 ,不传则默认图像大小
+        console.log("imageimageimage",img)
+        var canvas = document.createElement("canvas");
+        canvas.width = width ? width : img.width;
+        canvas.height = height ? height : img.height;
+
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        var dataURL = canvas.toDataURL();
+        return dataURL;
+    }
+    var image = document.createElement('img');
+    image.crossOrigin = 'Anonymous';
+    image.src = img;
+    var deferred = $.Deferred();
+    if (img) {
+        image.onload = function () {
+            deferred.resolve(getBase64Image(image));//将base64传给done上传处理
+        }
+        return deferred.promise();//问题要让onload完成后再return sessionStorage['imgTest']
+    }
+}
+	 
+ </script>
+</body>
+</html>

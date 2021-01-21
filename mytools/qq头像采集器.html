@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>QQ头像批量采集器</title>
+	</head>
+	<body>
+		<div class="myBox">
+		    <h2 style="text-align:center;">QQ头像批量采集器</h2>
+			<div class="inputCtrl">
+			   <label>QQ号区间：</label>
+			   <input id="qqidStart" value="" maxlength="12" size="12" name="qqid" placeholder="输入起始qq号" /> -
+			   <input id="qqidEnd" value="" maxlength="12" size="12" name="qqidEnd" placeholder="输入未尾qq号"/>
+			   <button class="getHeadBtn" onclick="getHead()">批量获取QQ头像</button>
+			   <button class="stopBtn" id="stopBtn" onclick="stopGetHead()">暂停</button>
+			   <span id="nowNum"></span>
+			</div>
+		    <div>
+                <div id="qqtx"></div>
+		    </div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+function getHead(){
+	var qqtx=document.getElementById("qqtx");
+	var qqidStart=Number(document.getElementById("qqidStart").value);
+	var qqidEnd=Number(document.getElementById("qqidEnd").value);
+	var nowNum = qqidEnd - qqidStart
+
+	console.log("nowNum",nowNum)
+
+    // 判断是否为空
+	if(!qqidStart || !qqidEnd){
+        alert("起始末尾QQ账号输入都不能为空！")
+        return
+	}else{
+		// 判断是否符合递增区间
+	    if(nowNum < 0){
+	      alert("起始QQ号不能大于末尾QQ号！请输入一个连续递增区间！")
+	      return
+	    }
+	}
+    
+    // 插入前先清空
+	qqtx.innerHTML = ""
+    // 插入头像
+    // for(i=qqidStart;i<=qqidEnd;i++){
+	// 	(function(i){
+	// 		setTimeout(async function(){
+	// 			await setHead(i)
+	// 		}, (i+1)*1000);
+	// 	})(i)
+	// }
+	var now = qqidStart
+	interval= setInterval(async() => {
+		if(now>qqidEnd){
+			clearInterval(interval);
+		}else{
+			document.getElementById("nowNum").innerText = `正在获取第${now-qqidStart+1}张QQ号为：${now}的头像`
+			await setHead(now)
+		}
+		now ++
+	}, 0);
+}
+function setHead(i){
+	return new Promise((resolve,reject)=>{
+		var headImg=document.createElement("img");
+		headImg.src="http://q1.qlogo.cn/g?b=qq&nk="+ i +"&s=640";
+		headImg.alt= i;
+		headImg.className="imgHead";
+		qqtx.appendChild(headImg);
+		resolve()
+	})
+}
+function stopGetHead(){
+	clearInterval(interval);
+}
+</script>
+
+<style>
+html,body{
+	height: 100%;
+	padding: 0;
+	margin:0;
+}
+body{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.myBox{
+    padding: 20px;
+    background-color: #f8f8f8;
+    width: 90%;
+    margin: auto;
+    border: #000 2px solid;
+}
+.inputCtrl{
+   text-align: center;
+   margin-bottom: 20px;
+}
+.imgHead{
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+}
+.getHeadBtn{
+    background-color: #A5DE37;
+    border-color: #A5DE37;
+    color: #FFF;
+    font-weight: 300;
+    font-size: 13px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 25px;
+    height: 25px;
+    padding: 0 15px;
+    margin: 0;
+    display: inline-block;
+    appearance: none;
+    cursor: pointer;
+    border: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+}
+.stopBtn{
+    background-color: skyblue;
+    border-color: skyblue;
+    color: #FFF;
+    font-weight: 300;
+    font-size: 13px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 25px;
+    height: 25px;
+    padding: 0 15px;
+    margin: 0;
+    display: inline-block;
+    appearance: none;
+    cursor: pointer;
+    border: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+}
+</style>
